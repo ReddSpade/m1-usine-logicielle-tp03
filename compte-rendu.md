@@ -50,15 +50,37 @@ pareil peu importe le projet.
 
 #### Quelle est la différence entre Bandit et Semgrep ? Dans quel cas utiliseriez-vous l'un ou l'autre ? <!-- rumdl-disable-line MD013 -->
 
+Bandit est limité à Python et utilise des règles par défaut.
+
+Semgrep lui supporte plusieurs langages et on peut soit lui fournir des règles internes
+soit télécharger des règles spécifiques.
+
+Si l'application est entièrement codée en python, Bandit peut suffire.
+
+À noter qu'une version OpenSource de Semgrep (Opengrep) existe.
+
 ### Question 5
 
 #### Qu'est-ce que l'analyse statique ? En quoi diffère-t-elle des tests unitaires ? <!-- rumdl-disable-line MD013 -->
+
+Un test statique va relever les failles de sécurité et structuelles du code
+avant son exécution.
+
+La différence est qu'un test unitaire s'assure du bon fonctionnement du code.
 
 ## Partie 4 — Pre-commit hooks
 
 ### Question 6
 
 #### Quel est l'intérêt des pre-commit hooks par rapport à la CI ? Pourquoi utiliser les deux ? <!-- rumdl-disable-line MD013 -->
+
+L'intérêt des pre-commits réside dans le fait de ne pas pousser de code invalide,
+bien qu'il puisse être attrapé par la CI, le commit salirait l'historique, et parfois
+même de manière critique (.env poussé par exemple).
+
+La CI reste importante comme double sécurité malgré tout, et elle ne se limite pas
+à ce que fait un hook, elle peut faire beaucoup d'autres taches comme du build
+par exemple.
 
 ### Question 7
 
