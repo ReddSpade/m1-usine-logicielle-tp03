@@ -32,6 +32,18 @@ fin de CI, il vaut mieux par simplicité l'avoir dans un hook.
 
 #### Quels avantages a Ruff par rapport à flake8 ? Pourquoi le fichier pyproject.toml est-il préférable à des arguments en ligne de commande ? <!-- rumdl-disable-line MD013 -->
 
+Ruff est écrit en Rust, et donc il est plus rapide de base que flake8 qui est écrit
+en python.
+
+De plus, il permet de faire à la fois du lint et du formattage.
+
+L'avantage de `pyproject.toml` réside dans sa portabilité, un projet initialisé
+peut simplement reprendre ce fichier au lieu de passer des commandes et il sera
+pareil peu importe le projet.
+
+À noter que `pyproject.toml` peut aussi être utilisé pour `uv`, un manager de paquets
+écrit en Rust bien plus rapide et modulaire que pip.
+
 ## Partie 3 — Analyse de sécurité avec Bandit et Semgrepe
 
 ### Question 4
