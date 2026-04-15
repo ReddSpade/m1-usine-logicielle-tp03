@@ -136,14 +136,35 @@ Vérifie les failles de dépendances au `requirements.txt` python.
 
 #### Décrivez ce que vous voyez sur le tableau de bord SonarCloud de votre projet. Quel est le résultat du Quality Gate ? Quels problèmes ont été détectés ? <!-- rumdl-disable-line MD013 -->
 
+Le dashboard présente plusieurs métriques,
+Par exemple, il propose une notation de A à E sur la sécurité, fiabilité et
+maintenabilité.
 
+Le résultat de la Quality Gate est n'est pas passée car:
+
+- La CI pointe sur la branche master du scan de SonarQube
+- L'application Flask ne spécifie pas les méthodes HTTP (GET) explicitement
 
 ### Question 11
 
 #### Comparez SonarCloud avec les outils locaux (Bandit, Semgrep, Ruff). Quels sont les avantages d'un outil centralisé comme SonarCloud en entreprise ? <!-- rumdl-disable-line MD013 -->
+
+L'avantage d'un outil centralisé comme SonarCloud en entreprise résite surtout
+dans sa partie de policies et scan.
+
+Il est possible de faire pointer les applications vers SonarQube et ainsi imposer
+des standards d'entreprise en matière de gestion de la sécurité et maintenabilité.
+
+De cette manière, le cycle de développement devient plus résilient.
 
 ## Partie 7 — Recherche autonome
 
 ### Question 12
 
 #### Quelles catégories de règles Ruff avez-vous ajoutées ? Pourquoi les avez-vous choisies ? Quelles erreurs ont-elles détectées dans votre code ? Indiquez le lien vers la page de documentation de chaque catégorie <!-- rumdl-disable-line MD013 -->
+
+Ajout de la règle [PLE](https://docs.astral.sh/ruff/rules/#error-ple) pour gérer les erreurs des décorateurs, beaucoup
+utilisés sur Flask.
+
+Ajout de la règle [T20](https://docs.astral.sh/ruff/rules/#flake8-print-t20) pour éviter d'avoir des prints, il vaut mieux utiliser
+`logging()`.

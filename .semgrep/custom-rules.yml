@@ -1,0 +1,7 @@
+rules:
+  - id: no-eval
+    patterns:
+      - pattern: eval(...)
+    message: "L'utilisation de eval() est extrêmement dangereuse car elle permet l'exécution de code arbitraire. Utilisez des alternatives plus sûres (JSON.parse, dictionnaires, etc.)."
+    languages: [python]
+    severity: ERROR
