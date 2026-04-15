@@ -18,10 +18,6 @@ def hello(name):
     return jsonify({"message": f"Bonjour {name} !"})
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
-
 @app.route("/add/<int:a>/<int:b>")
 def add(a, b):
     return jsonify({"result": a + b})
