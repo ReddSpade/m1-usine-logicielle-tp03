@@ -109,14 +109,34 @@ On peut controller par exemple:
 
 ### Question 9
 
-
 #### Décrivez l'ordre des vérifications dans votre pipeline final et expliquez pourquoi cet ordre est important. <!-- rumdl-disable-line MD013 -->
 
+La pipeline effectue les actions suivantes de manière séquentielle:
 
+**Job tests**:
+
+- `actions/checkout` pour que Github accède au workspace
+- `Installer Python` pour agir sur le projet codé en python
+- `Cache Pip` afin de ne pas réinstaller toutes les dépendances à chaque exécution
+  de la CI
+- `Installer les dépendances` pour installer les dépendances
+- `Formatage (black)` et `Linting (ruff)` Lint du code python
+- `Sécurité (bandit) et Sécurité (bandit)` Effectue les tests de sécurité en check
+  only
+- `Tests + couverture` Fait une couverture du code de src grace à Pytest
+- `Générer rapport couverture XML` Génère un rapport XML de ce test
+- `SonarCloud Scan` Génère un rapport sur SonarCloud du dépôt
+- `Sauvegarder le rapport`
+
+**Job security**:
+
+Vérifie les failles de dépendances au `requirements.txt` python.
 
 ### Question 10
 
 #### Décrivez ce que vous voyez sur le tableau de bord SonarCloud de votre projet. Quel est le résultat du Quality Gate ? Quels problèmes ont été détectés ? <!-- rumdl-disable-line MD013 -->
+
+
 
 ### Question 11
 
