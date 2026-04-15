@@ -86,13 +86,29 @@ par exemple.
 
 #### Un collègue fait un git commit --no-verify pour contourner les pre-commit hooks. Est-ce un problème ? Pourquoi ? <!-- rumdl-disable-line MD013 -->
 
+C'est effectivement un problème, comme dit dans la question plus haut, un pre-commit
+peut relever des erreurs critiques comme un .env poussé, ou des formattage de code
+ne respectant pas les règles ou les standards d'entreprise.
+
 ## Partie 5 — Pipeline final et Quality Gate
 
 ### Question 8
 
 #### Qu'est-ce qu'un Quality Gate ? Donnez 3 exemples de conditions qu'on pourrait y mettre. <!-- rumdl-disable-line MD013 -->
 
+Selon la [documentation Sonar](https://www.sonarsource.com/resources/library/quality-gate/)
+Un Quality Gate est un checkpoint qui assure que le code soit conforme aux standards
+de l'entreprise et passe un pourcentage de réussite suffisant avant de passer
+au prochain stade de son cycle de vie.
+
+On peut controller par exemple:
+
+- La documentation créée pour ce projet
+- Les failles de sécurité remontées
+- La validité syntaxique et structurelle du code
+
 ### Question 9
+
 
 #### Décrivez l'ordre des vérifications dans votre pipeline final et expliquez pourquoi cet ordre est important. <!-- rumdl-disable-line MD013 -->
 
