@@ -6,11 +6,25 @@
 
 #### Quelle est la différence entre un linter et un formatter ? Donnez un exemple de chaque en Python. <!-- rumdl-disable-line MD013 -->
 
+Là ou un Linter va relever et notifier les erreurs de codes et mauvaises pratiques,
+un formatter va venir corriger ce dernier.
+
+Un linter populaire python est flake8 ou pylint.
+Un formatter populaire est ruff ou black.
+
 ## Partie 1 — Formatage automatique avec Black
 
 ### Question 2
 
 #### Pourquoi utilise-t-on --check dans la CI plutôt que de laisser la CI formater le code directement ? <!-- rumdl-disable-line MD013 -->
+
+Le paramètre `--check` permet de mettre en place la partie linting de ruff et non
+la partie formatter.
+
+Effectuer un formattage ne serait pas utile car il serait perdu dans la CI actuelle.
+
+Si on voulait vraiment l'implémenter, il faudrait effectuer un nouveau push en
+fin de CI, il vaut mieux par simplicité l'avoir dans un hook.
 
 ## Partie 2 — Linting avancé avec Ruff
 

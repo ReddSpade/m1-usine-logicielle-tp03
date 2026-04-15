@@ -12,6 +12,7 @@ def home():
 def health():
     return jsonify({"status": "healthy"})
 
+
 @app.route("/hello/<name>")
 def hello(name):
     return jsonify({"message": f"Bonjour {name} !"})
