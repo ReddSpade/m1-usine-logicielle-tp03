@@ -24,24 +24,24 @@ jobs:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
           restore-keys: |
-            ${{ runner.os }}-pip
+            ${{ runner.os }}-pip-
 
       - name: Installer les dépendances
         run: pip install -r requirements.txt
 
-      - name: Vérification du formatage
+      - name: Formatage (black)
         run: black --check src/ tests/
 
-      - name: Linting avec Ruff
+      - name: Linting (ruff)
         run: ruff check src/ tests/
 
-      - name: Analyse sécurité Bandit
+      - name: Sécurité (bandit)
         run: bandit -r src/ -ll
 
-      - name: Analyse sécurité Semgrep
+      - name: Sécurité (semgrep)
         run: semgrep --config auto --error src/
 
-      - name: Lancer les tests avec couverture
+      - name: Tests + couverture
         run: |
           pytest --cov=src \
           --cov-report=term \
