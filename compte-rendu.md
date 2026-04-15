@@ -112,6 +112,8 @@ On peut controller par exemple:
 
 #### Décrivez l'ordre des vérifications dans votre pipeline final et expliquez pourquoi cet ordre est important. <!-- rumdl-disable-line MD013 -->
 
+
+
 ### Question 10
 
 #### Décrivez ce que vous voyez sur le tableau de bord SonarCloud de votre projet. Quel est le résultat du Quality Gate ? Quels problèmes ont été détectés ? <!-- rumdl-disable-line MD013 -->
